@@ -20,16 +20,17 @@ int main(void) {
     unsigned char tmpA = 0x00; 
  
     
-    unsigned char temp_input = 0x00;
+    
 
     /* Insert your solution below */
     while (1) {
-        tmpA = PINA & 0x01;
+        tmpA = PINA & 0x03; 
 	if (tmpA == 0x01) {
-		tmpB = (tmpB & 0xFC) | 0x01;
+	 //set PB0 to 1 if PA0 is 1 and PA1 is 0
+		tmpB = 0x01;
 
 	} else {
-		tmpB = (tmpB & 0xFC) | 0x02;
+		tmpB = 0x00;
 	}
 
 	PORTB = tmpB;
